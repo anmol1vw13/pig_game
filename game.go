@@ -75,7 +75,7 @@ func match(p1, p2 Player, games int) {
 			}
 
 			if(gameWisePrint) {
-				fmt.Printf("Holding at %d vs Holding at %d: wins: %d/%d (%g%%), losses: %d/%d (%g%%)\n", i, j,
+				fmt.Printf("Holding at %d vs Holding at %d: wins: %d/%d (%0.1f%%), losses: %d/%d (%0.1f%%)\n", i, j,
 					p1Wins, games, float32(p1Wins)*100/float32(games),
 					p2Wins, games, float32(p2Wins)*100/float32(games))
 				p1Wins, p2Wins = 0, 0	
@@ -83,7 +83,7 @@ func match(p1, p2 Player, games int) {
 		}
 		if(!gameWisePrint) {
 			totalGames := totalGames*games
-			fmt.Printf("Wins, Losses staying a k = %d: %d/%d (%g%%), losses: %d/%d (%g%%)\n", i,
+			fmt.Printf("Wins, Losses staying a k = %d: %d/%d (%0.1f%%), losses: %d/%d (%0.1f%%)\n", i,
 					p1Wins, totalGames, float32(p1Wins)*100/float32(totalGames),
 					p2Wins, totalGames, float32(p2Wins)*100/float32(totalGames))
 		}
