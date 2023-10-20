@@ -49,7 +49,7 @@ func (h HoldingRange) isStartAndEndSame() bool{
 }
 
 func match(p1, p2 Player, games int) {
-	gameWisePrint := p1.holdingRange.isStartAndEndSame() || p2.holdingRange.isStartAndEndSame()
+	singleStrategyVsMultipleStrategy := p1.holdingRange.isStartAndEndSame() || p2.holdingRange.isStartAndEndSame()
 
 	for i := p1.holdingRange.start; i <= p1.holdingRange.end; i++ {
 		p1Wins, p2Wins := 0, 0
@@ -74,14 +74,14 @@ func match(p1, p2 Player, games int) {
 				g++
 			}
 
-			if(gameWisePrint) {
+			if(singleStrategyVsMultipleStrategy) {
 				fmt.Printf("Holding at %d vs Holding at %d: wins: %d/%d (%0.1f%%), losses: %d/%d (%0.1f%%)\n", i, j,
 					p1Wins, games, float32(p1Wins)*100/float32(games),
 					p2Wins, games, float32(p2Wins)*100/float32(games))
 				p1Wins, p2Wins = 0, 0	
 			}
 		}
-		if(!gameWisePrint) {
+		if(!singleStrategyVsMultipleStrategy) {
 			totalGames := totalGames*games
 			fmt.Printf("Wins, Losses staying a k = %d: %d/%d (%0.1f%%), losses: %d/%d (%0.1f%%)\n", i,
 					p1Wins, totalGames, float32(p1Wins)*100/float32(totalGames),
